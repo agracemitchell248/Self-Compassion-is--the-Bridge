@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Compassion Reflection Guide | UnBroken</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #203445;
+            color: #203445;
+            padding: 20px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* ── HEADER (Step 1 only) ── */
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: none;
+        }
+        .header-icon {
+            width: 120px; height: 120px;
+            border-radius: 50%; overflow: hidden;
+            margin: 0 auto 18px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #e8f4f6 0%, #f0f9f7 100%);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 52px;
+        }
+        h1 {
+            color: #203445; font-size: 36px;
+            font-weight: 800; line-height: 1.15; margin-bottom: 14px;
+        }
+        .subtitle {
+            color: #6c757d; font-size: 16px;
+            line-height: 1.6; max-width: 540px; margin: 0 auto;
+        }
+
+        /* ── PROGRESS BAR ── */
+        .progress-bar-container {
+            margin-bottom: 20px; background: #e0e0e0;
+            height: 6px; border-radius: 4px; overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #5da0af 0%, #acc95d 100%);
+            transition: width 0.5s ease; width: 0%;
+        }
+        .progress-text {
+            text-align: center; color: #6c757d;
+            font-size: 14px; margin-top: 8px; margin-bottom: 24px;
+        }
+
+        /* ── STEP SECTIONS ── */
+        .step-section { display: none; animation: fadeIn 0.5s; }
+        .step-section.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── CONTENT BOXES ── */
+        .intro-box {
+            background: #f8f9fa;
+            border-left: 4px solid #d56439;
+            padding: 20px; margin-bottom: 30px; border-radius: 8px;
+        }
+        .intro-box h2 { color: #d56439; margin-bottom: 15px; font-size: 1.3em; }
+        .intro-box p  { margin-bottom: 10px; color: #555; line-height: 1.6; }
+
+        .reflection-section {
+            background: #f8f9fa;
+            border-left: 4px solid #d56439;
+            padding: 25px; border-radius: 8px; margin-bottom: 25px;
+        }
+        .reflection-section h2 { color: #d56439; font-size: 1.3em; margin-bottom: 10px; }
+        .reflection-timer     { color: #6c757d; font-size: 0.9em; font-style: italic; margin-bottom: 20px; }
+        .reflection-prompt    { margin-bottom: 20px; }
+
+        .prompt-question {
+            font-weight: 600; color: #203445;
+            margin: 15px 0; font-size: 1.1em;
+        }
+
+        .validation-note {
+            background: #fff3cd; border-left: 4px solid #dfb852;
+            padding: 15px; margin: 20px 0; border-radius: 5px; font-size: 0.95em;
+        }
+        .validation-note strong { display: block; margin-bottom: 8px; color: #856404; }
+
+        .compassion-reminder {
+            background: #e8f4f6; border-left: 4px solid #5da0af;
+            padding: 15px; margin: 20px 0; border-radius: 5px;
+        }
+        .compassion-reminder strong { display: block; margin-bottom: 8px; color: #203445; }
+
+        .helper-box {
+            background: #e8f4f6; border: 1px solid #b8d8e0;
+            padding: 15px; border-radius: 8px; margin: 15px 0;
+            display: flex; align-items: flex-start; gap: 10px;
+        }
+        .helper-box-icon { font-size: 1.2em; flex-shrink: 0; }
+        .helper-box-text { color: #203445; font-size: 0.95em; }
+
+        .privacy-note {
+            background: #f7f9fa; border: 1px solid #dee2e6;
+            padding: 15px; border-radius: 8px; margin-top: 15px;
+            color: #6c757d; font-size: 0.95em; text-align: center;
+        }
+
+        .quote-callout {
+            background: linear-gradient(135deg, rgba(93,160,175,0.1) 0%, rgba(172,201,93,0.1) 100%);
+            border-left: 4px solid #5da0af;
+            padding: 20px; margin: 25px 0; border-radius: 8px;
+        }
+        .quote-callout blockquote {
+            font-size: 1.1em; font-style: italic; color: #203445; line-height: 1.6;
+        }
+
+        /* ── TEXTAREAS ── */
+        textarea {
+            width: 100%; min-height: 120px; padding: 15px;
+            border: 2px solid #e9ecef; border-radius: 8px;
+            font-family: inherit; font-size: 1em;
+            resize: vertical; transition: border-color 0.3s; margin-top: 10px;
+        }
+        textarea:focus         { outline: none; border-color: #5da0af; }
+        textarea::placeholder  { color: #999; font-style: italic; }
+
+        .save-indicator {
+            display: inline-block; margin-top: 8px;
+            font-size: 0.85em; color: #acc95d;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .save-indicator.show { opacity: 1; }
+
+        /* ── NAVIGATION BUTTONS ── */
+        .nav-buttons {
+            display: flex; justify-content: space-between;
+            align-items: center; margin-top: 30px; gap: 12px;
+        }
+        .btn {
+            padding: 12px 28px; border: none; border-radius: 6px;
+            font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+        }
+        .btn-primary  { background: #5da0af; color: white; flex: 3; }
+        .btn-primary:hover  { background: #4a8799; transform: translateY(-1px); }
+        .btn-primary:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+        .btn-secondary { background: #e9ecef; color: #495057; flex: 1; }
+        .btn-secondary:hover { background: #dee2e6; }
+
+        /* ── FINAL SCREEN COMPONENTS ── */
+        .download-options { margin: 25px 0 0; text-align: center; }
+        .download-card {
+            background: #203445; border-radius: 12px;
+            padding: 36px 30px 30px; text-align: center; color: white;
+        }
+        .download-card .eyebrow {
+            font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: #8fafc0; margin-bottom: 14px;
+        }
+        .download-card h3    { font-size: 24px; font-weight: 800; color: white; margin-bottom: 14px; }
+        .download-card p     { font-size: 15px; color: #b8cdd8; line-height: 1.6; max-width: 520px; margin: 0 auto 22px; }
+        .btn-download {
+            display: inline-block; background: #acc95d; color: #1a2a1a;
+            font-size: 16px; font-weight: 700; padding: 16px 36px;
+            border-radius: 8px; border: none; cursor: pointer;
+            width: 100%; max-width: 420px; transition: all 0.25s;
+        }
+        .btn-download:hover {
+            background: #99b84e; transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(172, 201, 93, 0.35);
+        }
+        .download-privacy { font-size: 13px; color: #7a9aad; margin-top: 12px; }
+
+        .zoom-callout {
+            margin: 16px 0 0; padding: 36px 30px 30px;
+            background: #2a4158; border: none; border-radius: 12px; text-align: center;
+        }
+        .zoom-callout h3 { color: white; font-size: 22px; font-weight: 800; margin-bottom: 12px; }
+        .zoom-callout p  { color: #b8cdd8; line-height: 1.6; margin-bottom: 18px; max-width: 540px; margin-left: auto; margin-right: auto; }
+        .zoom-link-btn {
+            display: inline-block; padding: 15px 40px;
+            background: #5da0af; color: white; text-decoration: none;
+            border-radius: 8px; font-size: 16px; font-weight: 700;
+            transition: all 0.25s; margin: 4px 0;
+        }
+        .zoom-link-btn:hover {
+            background: #4a8799; transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(93, 160, 175, 0.35);
+        }
+
+        .next-up-box {
+            background: #f0f9f7; padding: 28px 30px;
+            margin: 20px 0; border-left: 4px solid #acc95d; border-radius: 6px;
+        }
+        .next-up-box h3 { color: #203445; font-size: 20px; margin-bottom: 12px; }
+        .next-up-box p  { color: #203445; line-height: 1.6; margin-bottom: 10px; }
+        .next-up-box ul { margin: 15px 0; padding-left: 25px; }
+        .next-up-box li { margin-bottom: 10px; color: #203445; line-height: 1.5; }
+
+        .completion-message { text-align: center; padding: 20px 0; }
+        .completion-message h2 { color: #5da0af; font-size: 2em; margin-bottom: 20px; }
+        .completion-message p  { font-size: 1.1em; line-height: 1.6; color: #555; margin-bottom: 15px; }
+
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 20px; }
+            h1 { font-size: 26px; }
+            .nav-buttons { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header" id="module-header">
+            <div class="header-icon">💛</div>
+            <h1>Self-Compassion</h1>
+            <p class="subtitle">Building the bridge between awareness and healing — one gentle turn inward at a time.</p>
+        </div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <p class="progress-text" id="progressText">Step 1 of 11</p>
+
+        <div class="content">
+            <!-- Step 1: Welcome & Introduction -->
+            <div class="step-section active" id="step1">
+                <div class="quote-callout">
+                    <blockquote>
+                        "Self-compassion is the bridge between awareness and healing. Once you can see your patterns clearly, compassion gives you the courage and kindness to actually change them."
+                    </blockquote>
+                </div>
+
+                <div class="intro-box">
+                    <h2>Welcome to Your Reflection Space</h2>
+                    <p>In previous sessions, you learned that job loss is real trauma and how your nervous system responds to threat. You've built awareness of what's happening in your body and brain.</p>
+                    <p><strong>Now we build the bridge to healing.</strong></p>
+                    <p>This guide helps you practice self-compassion—the essential ingredient that transforms awareness into actual change. The questions here are designed to help you notice patterns, build understanding, and practice extending kindness to yourself during this difficult transition.</p>
+                    <p><strong>There are no wrong answers.</strong> This is your space to be honest about where you are right now.</p>
+                </div>
+
+                <!-- In This Session -->
+                <div style="background: #f7f9fa; border-radius: 10px; padding: 26px 28px; margin: 20px 0;">
+                    <p style="font-weight: 700; color: #203445; font-size: 17px; margin-bottom: 18px;">In this session you will:</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #e8ecef; color: #203445; font-size: 16px; line-height: 1.5;">
+                            <span style="color: #5da0af; font-size: 18px; flex-shrink: 0; margin-top: 1px;">✦</span>
+                            Take a short self-compassion assessment to understand where you are right now
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #e8ecef; color: #203445; font-size: 16px; line-height: 1.5;">
+                            <span style="color: #5da0af; font-size: 18px; flex-shrink: 0; margin-top: 1px;">✦</span>
+                            Explore what self-kindness, common humanity, and reflection really mean in the context of job loss
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #e8ecef; color: #203445; font-size: 16px; line-height: 1.5;">
+                            <span style="color: #5da0af; font-size: 18px; flex-shrink: 0; margin-top: 1px;">✦</span>
+                            Practice turning toward yourself with the same care you'd offer a trusted friend
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; color: #203445; font-size: 16px; line-height: 1.5;">
+                            <span style="color: #5da0af; font-size: 18px; flex-shrink: 0; margin-top: 1px;">✦</span>
+                            Download a personal copy of your reflections to keep
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- What to Expect Cards -->
+                <div style="display: flex; gap: 16px; margin: 24px 0; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 140px; background: #eef4f7; border-radius: 12px; padding: 22px 18px; text-align: center;">
+                        <div style="font-size: 28px; margin-bottom: 8px;">⏱️</div>
+                        <div style="font-weight: 700; color: #5da0af; font-size: 15px; margin-bottom: 4px;">About 45 min</div>
+                        <div style="color: #6c757d; font-size: 13px;">at your own pace</div>
+                    </div>
+                    <div style="flex: 1; min-width: 140px; background: #fef9f2; border-radius: 12px; padding: 22px 18px; text-align: center;">
+                        <div style="font-size: 28px; margin-bottom: 8px;">📋</div>
+                        <div style="font-weight: 700; color: #dfb852; font-size: 15px; margin-bottom: 4px;">1 assessment</div>
+                        <div style="color: #6c757d; font-size: 13px;">Self-Compassion Scale</div>
+                    </div>
+                    <div style="flex: 1; min-width: 140px; background: #f5f0ea; border-radius: 12px; padding: 22px 18px; text-align: center;">
+                        <div style="font-size: 28px; margin-bottom: 8px;">📄</div>
+                        <div style="font-weight: 700; color: #acc95d; font-size: 15px; margin-bottom: 4px;">PDF download</div>
+                        <div style="color: #6c757d; font-size: 13px;">your reflections to keep</div>
+                    </div>
+                </div>
+
+                <div class="helper-box">
+                    <span class="helper-box-icon">💡</span>
+                    <span class="helper-box-text"><strong>How this works:</strong> Your reflections are automatically saved to your browser as you type. They stay private and are only visible to you. Take your time with each question—you can pause and come back anytime.</span>
+                </div>
+            </div>
+
+            <!-- Step 2: Self-Compassion Scale Assessment -->
+            <div class="step-section" id="step2">
+                <div class="reflection-section">
+                    <h2>Self-Compassion Assessment</h2>
+                    <p class="reflection-timer">Take about 10-12 minutes</p>
+                    
+                    <p style="margin-bottom: 15px;">This assessment, developed by Dr. Kristin Neff, helps you understand your current relationship with self-compassion. For each statement, indicate how often you behave in the stated manner.</p>
+                    
+                    <div class="validation-note">
+                        <strong>Remember:</strong> There are no right or wrong answers. This is just a snapshot of where you are right now—and wherever you are is a valid starting point.
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <!-- Item 1 - Self-Judgment (REVERSE) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">1. I'm disapproving and judgmental about my own flaws and inadequacies.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc1" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc1" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc1" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc1" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc1" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 - Isolation (REVERSE) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">2. When I'm feeling down, I tend to feel like most other people are probably happier than I am.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc2" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc2" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc2" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc2" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc2" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 - Self-Kindness (FORWARD) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">3. I try to be loving toward myself when I'm feeling emotional pain.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc3" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc3" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc3" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc3" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc3" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 - Self-Judgment (REVERSE) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">4. When times are really difficult, I tend to be tough on myself.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc4" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc4" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc4" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc4" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc4" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 5 - Rumination (REVERSE) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">5. I find myself repeatedly going over what happened with my job loss, unable to stop thinking about it.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc5" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc5" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc5" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc5" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc5" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 6 - Self-Judgment (REVERSE) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">6. I'm intolerant and impatient towards those aspects of my personality I don't like.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc6" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc6" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc6" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc6" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc6" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 7 - Self-Kindness (FORWARD) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">7. When I'm going through a very hard time, I give myself the caring and tenderness I need.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc7" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc7" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc7" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc7" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc7" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 8 - Isolation (REVERSE) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">8. When I fail at something that's important to me, I tend to feel alone in my failure.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc8" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc8" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc8" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc8" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc8" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 9 - Rumination (REVERSE) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">9. I get stuck asking myself 'Why did this happen to me?' without finding any answers.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc9" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc9" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc9" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc9" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc9" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 10 - Self-Judgment (REVERSE) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">10. I can be a bit cold-hearted towards myself when I'm experiencing suffering.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc10" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc10" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc10" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc10" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc10" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 11 - Reflection (FORWARD) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">11. I'm able to think about my job loss in ways that help me understand what I need going forward.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc11" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc11" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc11" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc11" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc11" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 12 - Isolation (REVERSE) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">12. When I'm really struggling, I tend to feel like other people must be having an easier time of it.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc12" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc12" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc12" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc12" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc12" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 13 - Reflection (FORWARD) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">13. When I think about my career situation, I can identify specific steps I might take, even small ones.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc13" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc13" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc13" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc13" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc13" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 14 - Self-Kindness (FORWARD) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">14. I'm kind to myself when I'm experiencing suffering.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc14" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc14" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc14" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc14" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc14" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 15 - Self-Judgment (REVERSE) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">15. I don't give myself permission to feel inadequate or insecure.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc15" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc15" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc15" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc15" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc15" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 16 - Self-Kindness (FORWARD) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">16. I'm tolerant of my own flaws and inadequacies.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc16" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc16" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc16" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc16" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc16" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 17 - Isolation (REVERSE) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">17. When something painful happens, I tend to blow the incident out of proportion.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc17" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc17" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc17" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc17" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc17" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 18 - Self-Kindness (FORWARD) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">18. When I fail at something important to me, I try to keep things in perspective.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc18" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc18" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc18" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc18" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc18" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 19 - Reflection (FORWARD) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">19. I can think about my job loss and identify what I've learned, even though it's painful.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc19" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc19" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc19" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc19" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc19" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 20 - Rumination (REVERSE) -->
+                        <div class="scale-question" style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #5da0af;">
+                            <p style="font-weight: 600; margin-bottom: 15px;">20. I keep reliving the moment I found out about my job loss, over and over.</p>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc20" value="1" style="margin-right: 10px;"> Almost never
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc20" value="2" style="margin-right: 10px;"> Sometimes
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc20" value="3" style="margin-right: 10px;"> Fairly often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc20" value="4" style="margin-right: 10px;"> Very often
+                                </label>
+                                <label style="cursor: pointer; padding: 8px; display: flex; align-items: center;">
+                                    <input type="radio" name="sc20" value="5" style="margin-right: 10px;"> Almost always
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="compassion-reminder" style="margin-top: 20px;">
+                        <strong>About this assessment:</strong> This assessment is adapted from Dr. Kristin Neff's Self-Compassion Scale, modified for individuals experiencing job loss. We've replaced the Mindfulness subscale with Reflection vs. Rumination items to better address the specific cognitive patterns that emerge after career trauma. Learn more about the original Self-Compassion Scale at self-compassion.org
+                    </div>
+
+                    <div class="privacy-note" style="margin-top: 20px;">
+                        Your responses are saved privately. You'll see your results on the next screen.
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Step 3: Assessment Results -->
+            <div class="step-section" id="step3">
+                <div class="reflection-section">
+                    <h2>Your Self-Compassion Profile</h2>
+                    
+                    <p style="margin-bottom: 25px;">Based on your responses, here's how you currently relate to yourself across six key dimensions. Remember, this is just a starting point—self-compassion is a practice you can develop.</p>
+
+                    <div style="margin-bottom: 30px;">
+                        <div style="background: white; padding: 25px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #acc95d;">
+                            <h3 style="color: #203445; margin-bottom: 10px;">Self-Kindness</h3>
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                                <div style="flex: 1; height: 12px; background: #e9ecef; border-radius: 6px; overflow: hidden;">
+                                    <div id="sk-bar" style="height: 100%; background: #acc95d; width: 0%; transition: width 1s;"></div>
+                                </div>
+                                <span id="sk-score" style="font-weight: 600; color: #203445; min-width: 40px;">-</span>
+                            </div>
+                            <p id="sk-interpretation" style="color: #555; font-size: 0.95em; margin-top: 10px;"></p>
+                        </div>
+
+                        <div style="background: white; padding: 25px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #5da0af;">
+                            <h3 style="color: #203445; margin-bottom: 10px;">Self-Judgment</h3>
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                                <div style="flex: 1; height: 12px; background: #e9ecef; border-radius: 6px; overflow: hidden;">
+                                    <div id="sj-bar" style="height: 100%; background: #5da0af; width: 0%; transition: width 1s;"></div>
+                                </div>
+                                <span id="sj-score" style="font-weight: 600; color: #203445; min-width: 40px;">-</span>
+                            </div>
+                            <p id="sj-interpretation" style="color: #555; font-size: 0.95em; margin-top: 10px;"></p>
+                        </div>
+
+                        <div style="background: white; padding: 25px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #acc95d;">
+                            <h3 style="color: #203445; margin-bottom: 10px;">Common Humanity</h3>
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                                <div style="flex: 1; height: 12px; background: #e9ecef; border-radius: 6px; overflow: hidden;">
+                                    <div id="ch-bar" style="height: 100%; background: #acc95d; width: 0%; transition: width 1s;"></div>
+                                </div>
+                                <span id="ch-score" style="font-weight: 600; color: #203445; min-width: 40px;">-</span>
+                            </div>
+                            <p id="ch-interpretation" style="color: #555; font-size: 0.95em; margin-top: 10px;"></p>
+                        </div>
+
+                        <div style="background: white; padding: 25px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #dfb852;">
+                            <h3 style="color: #203445; margin-bottom: 10px;">Isolation</h3>
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                                <div style="flex: 1; height: 12px; background: #e9ecef; border-radius: 6px; overflow: hidden;">
+                                    <div id="iso-bar" style="height: 100%; background: #dfb852; width: 0%; transition: width 1s;"></div>
+                                </div>
+                                <span id="iso-score" style="font-weight: 600; color: #203445; min-width: 40px;">-</span>
+                            </div>
+                            <p id="iso-interpretation" style="color: #555; font-size: 0.95em; margin-top: 10px;"></p>
+                        </div>
+
+                        <div style="background: white; padding: 25px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #acc95d;">
+                            <h3 style="color: #203445; margin-bottom: 10px;">Reflection</h3>
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                                <div style="flex: 1; height: 12px; background: #e9ecef; border-radius: 6px; overflow: hidden;">
+                                    <div id="ref-bar" style="height: 100%; background: #acc95d; width: 0%; transition: width 1s;"></div>
+                                </div>
+                                <span id="ref-score" style="font-weight: 600; color: #203445; min-width: 40px;">-</span>
+                            </div>
+                            <p id="ref-interpretation" style="color: #555; font-size: 0.95em; margin-top: 10px;"></p>
+                        </div>
+
+                        <div style="background: white; padding: 25px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #d56439;">
+                            <h3 style="color: #203445; margin-bottom: 10px;">Rumination</h3>
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                                <div style="flex: 1; height: 12px; background: #e9ecef; border-radius: 6px; overflow: hidden;">
+                                    <div id="rum-bar" style="height: 100%; background: #d56439; width: 0%; transition: width 1s;"></div>
+                                </div>
+                                <span id="rum-score" style="font-weight: 600; color: #203445; min-width: 40px;">-</span>
+                            </div>
+                            <p id="rum-interpretation" style="color: #555; font-size: 0.95em; margin-top: 10px;"></p>
+                        </div>
+
+                        <div style="background: linear-gradient(135deg, rgba(93,160,175,0.1) 0%, rgba(172,201,93,0.1) 100%); padding: 25px; border-radius: 10px; border-left: 4px solid #5da0af;">
+                            <h3 style="color: #203445; margin-bottom: 10px;">Overall Self-Compassion</h3>
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                                <div style="flex: 1; height: 16px; background: #e9ecef; border-radius: 8px; overflow: hidden;">
+                                    <div id="overall-bar" style="height: 100%; background: linear-gradient(90deg, #5da0af 0%, #acc95d 100%); width: 0%; transition: width 1s;"></div>
+                                </div>
+                                <span id="overall-score" style="font-weight: 700; color: #203445; font-size: 1.2em; min-width: 40px;">-</span>
+                            </div>
+                            <p id="overall-interpretation" style="color: #555; font-size: 1em; margin-top: 10px; font-weight: 500;"></p>
+                        </div>
+                    </div>
+
+                    <div class="validation-note">
+                        <strong>What these scores mean:</strong> Scores range from 1-5. Higher scores indicate more of that quality. Remember: Self-compassion is a skill you can develop—these scores show where you're starting, not where you're stuck.
+                    </div>
+
+                    <div class="compassion-reminder" style="margin-top: 20px;">
+                        <strong>About this assessment:</strong> Adapted from Dr. Kristin Neff's Self-Compassion Scale and modified for job loss trauma. These results are for your personal reflection and are not a clinical diagnosis.
+                    </div>
+                </div>
+            </div>
+            <!-- Step 4: Understanding Self-Compassion Reflections -->
+            <div class="step-section" id="step4">
+                <div class="reflection-section">
+                    <h2>💡 Key Concept: Understanding Self-Compassion</h2>
+                    <p class="reflection-timer">Take about 10 minutes</p>
+                    
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">Your Self-Talk During Job Loss</p>
+                        <p>When you think about your job loss or current career situation, what's the dominant voice in your head? Write down some of the actual phrases or thoughts that come up.</p>
+                    </div>
+                    
+                    <textarea id="reflection-1-1" placeholder="Example: 'I should have seen this coming...' or 'Everyone else is moving forward but me...'"></textarea>
+                    <span class="save-indicator" id="save-1-1">Saved ✓</span>
+                </div>
+
+                <div class="compassion-reminder">
+                    <strong>Gentle reminder:</strong> Noticing harsh self-talk doesn't mean you're doing something wrong. It means you're becoming aware—which is the first step toward change.
+                </div>
+
+                <div class="reflection-section" style="margin-top: 30px;">
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">The Friend Test</p>
+                        <p>If your closest friend came to you experiencing job loss, what would you say to them? How would your tone be different from how you talk to yourself?</p>
+                    </div>
+                    
+                    <textarea id="reflection-1-2" placeholder="Write what you'd genuinely say to a friend going through this..."></textarea>
+                    <span class="save-indicator" id="save-1-2">Saved ✓</span>
+                </div>
+
+                <div class="reflection-section" style="margin-top: 30px;">
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">Where Did You Learn This?</p>
+                        <p>Your inner critic has a history. Whose voice does it sound like? Where did you learn to talk to yourself this way during difficulty? (Parents, teachers, coaches, culture, past bosses?)</p>
+                    </div>
+                    
+                    <textarea id="reflection-1-3" placeholder="This is just for your awareness—there's no need to analyze or fix anything yet..."></textarea>
+                    <span class="save-indicator" id="save-1-3">Saved ✓</span>
+                </div>
+
+                <div class="validation-note" style="margin-top: 25px;">
+                    <strong>What you might notice:</strong> Many people discover their self-criticism sounds like someone from their past who meant well but communicated harshly. Or it might sound like workplace cultures that prioritized results over humanity. Whatever you notice is valid.
+                </div>
+
+                <div class="privacy-note">
+                    These reflections are private. Just for you.
+                </div>
+            </div>
+
+            <!-- Step 5: Self-Kindness vs. Self-Judgment -->
+            <div class="step-section" id="step5">
+                <div class="reflection-section">
+                    <h2>💡 Key Concept: Self-Kindness</h2>
+                    <p class="reflection-timer">Take about 10 minutes</p>
+                    
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">A Specific Difficult Moment</p>
+                        <p>Think of one specific moment in the past week when you felt critical of yourself about your career situation. Describe what happened and what you said to yourself.</p>
+                    </div>
+                    
+                    <textarea id="reflection-2-1" placeholder="What was the situation? What did your inner critic say?"></textarea>
+                    <span class="save-indicator" id="save-2-1">Saved ✓</span>
+                </div>
+
+                <div class="reflection-section" style="margin-top: 30px;">
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">Rewriting with Kindness</p>
+                        <p>Now take that same moment and rewrite what you said to yourself—this time with the kindness you'd show a friend. What would compassionate truth-telling sound like here?</p>
+                    </div>
+                    
+                    <textarea id="reflection-2-2" placeholder="How could you acknowledge the difficulty while being kind to yourself?"></textarea>
+                    <span class="save-indicator" id="save-2-2">Saved ✓</span>
+                </div>
+
+                <div class="compassion-reminder" style="margin-top: 25px;">
+                    <strong>Remember:</strong> Self-compassion isn't about denying reality or letting yourself off the hook. It's about responding to yourself with the same supportive honesty you'd offer someone you care about.
+                </div>
+
+                <div class="reflection-section" style="margin-top: 30px;">
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">What Feels Hard About Kindness?</p>
+                        <p>When you imagine speaking to yourself more kindly, what resistance comes up? What fears or beliefs might be in the way?</p>
+                    </div>
+                    
+                    <textarea id="reflection-2-3" placeholder="Example: 'I'm afraid if I'm kind to myself, I'll become lazy or complacent...'"></textarea>
+                    <span class="save-indicator" id="save-2-3">Saved ✓</span>
+                </div>
+
+                <div class="validation-note" style="margin-top: 25px;">
+                    <strong>Common fears about self-kindness:</strong> Many people worry that being kind to themselves means they'll lose their edge, stop trying, or become self-indulgent. Research actually shows the opposite: self-compassion increases motivation and resilience. But it makes sense to have these worries.
+                </div>
+
+                <div class="privacy-note">
+                    Your reflections are private. Just for you.
+                </div>
+            </div>
+
+            <!-- Step 6: Common Humanity vs. Isolation -->
+            <div class="step-section" id="step6">
+                <div class="reflection-section">
+                    <h2>💡 Key Concept: Common Humanity</h2>
+                    <p class="reflection-timer">Take about 15 minutes</p>
+                    
+                    <div class="intro-box">
+                        <p>Job loss creates a unique kind of isolation. While millions experience it, there's a culture of silence that makes it hard to find the common humanity. People who've been through it often don't talk about how hard it was. And people around you may be saying "just move on" as if this isn't that difficult.</p>
+                        <p><strong>This silence isn't your imagination.</strong> Let's explore both the isolation you're experiencing and the real barriers to finding connection.</p>
+                    </div>
+
+                    <div class="reflection-prompt" style="margin-top: 30px;">
+                        <p class="prompt-question">The "Only Me" Story</p>
+                        <p>What thoughts do you have that make you feel uniquely isolated in this experience? Finish this sentence: "I'm probably the only one who..."</p>
+                    </div>
+                    
+                    <textarea id="reflection-3-1" placeholder="Write the thoughts that make you feel most alone in this..."></textarea>
+                    <span class="save-indicator" id="save-3-1">Saved ✓</span>
+                </div>
+
+                <div class="validation-note" style="margin-top: 25px;">
+                    <strong>Why this isolation feels so real:</strong> Job loss carries shame in our culture. Success is public; struggle is private. Even people who've experienced exactly what you're going through often minimize it in retrospect or stay silent about the hardest parts.
+                </div>
+
+                <div class="reflection-section" style="margin-top: 30px;">
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">The "Just Move On" Pressure</p>
+                        <p>What messages are you getting from others (or from yourself) about how you "should" be handling this? What are people saying—or NOT saying—that makes this feel harder?</p>
+                    </div>
+                    
+                    <textarea id="reflection-3-2" placeholder="Examples: 'It's been X weeks, you should be over it' or 'At least you have...' or the silence when you try to talk about how hard this is..."></textarea>
+                    <span class="save-indicator" id="save-3-2">Saved ✓</span>
+                </div>
+
+                <div class="compassion-reminder" style="margin-top: 25px;">
+                    <strong>Truth:</strong> The pressure to "bounce back" quickly is not based on how trauma actually works. Job loss is a significant life disruption that takes real time to process. The timeline others expect has nothing to do with what you actually need.
+                </div>
+
+                <div class="reflection-section" style="margin-top: 30px;">
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">Finding the Hidden Common Humanity</p>
+                        <p>Even though it's hidden, the common humanity exists. What evidence do you have—however small—that others have struggled with this too? (Statistics you've seen? Someone who briefly mentioned their own experience? Stories you've read?)</p>
+                    </div>
+                    
+                    <textarea id="reflection-3-3" placeholder="Even tiny glimpses of 'oh, someone else felt this way' count here..."></textarea>
+                    <span class="save-indicator" id="save-3-3">Saved ✓</span>
+                </div>
+
+                <div class="validation-note" style="margin-top: 25px;">
+                    <strong>The disconnect you're experiencing:</strong> You might intellectually know job loss is common (millions of people go through it) while still feeling completely alone. That's because knowing statistics doesn't create felt connection—especially when the people around you aren't admitting their own struggles or are minimizing yours.
+                </div>
+
+                <div class="reflection-section" style="margin-top: 30px;">
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">What You Need vs. What You're Getting</p>
+                        <p>If the people around you could really understand what this is like, what would you want them to know? What kind of response would actually help right now?</p>
+                    </div>
+                    
+                    <textarea id="reflection-3-4" placeholder="What would it mean for someone to truly get it?"></textarea>
+                    <span class="save-indicator" id="save-3-4">Saved ✓</span>
+                </div>
+
+                <div class="compassion-reminder" style="margin-top: 25px;">
+                    <strong>Important:</strong> The silence and minimization you're experiencing isn't because your struggle isn't real or isn't hard. It's because our culture hasn't learned to hold space for career loss as the legitimate trauma it is. The problem is the culture of silence—not you.
+                </div>
+
+                <div class="privacy-note">
+                    These reflections are private. Just for you.
+                </div>
+            </div>
+
+            <!-- Step 7: Reflection vs. Rumination -->
+            <div class="step-section" id="step7">
+                <div class="reflection-section">
+                    <h2>💡 Key Concept: Reflection</h2>
+                    <p class="reflection-timer">Take about 15 minutes</p>
+                    
+                    <div class="intro-box">
+                        <p>After job loss, your mind is working hard to process what happened. But there's a crucial difference between <strong>reflection</strong> (thinking that helps you understand and move forward) and <strong>rumination</strong> (getting stuck in loops that keep you feeling worse).</p>
+                        <p>Rumination isn't a personal failing—it's your brain trying to regain control after trauma. Let's explore what's happening and find a more compassionate way forward.</p>
+                    </div>
+
+                    <div class="reflection-prompt" style="margin-top: 30px;">
+                        <p class="prompt-question">Recognizing Your Mental Loops</p>
+                        <p>What career-related thoughts do you find yourself returning to again and again? What questions keep spinning without resolution?</p>
+                    </div>
+                    
+                    <textarea id="reflection-4-1" placeholder="Examples: 'Why did this happen to me?' 'What if I had done X differently?' 'How could they do this?' 'What's wrong with me?'"></textarea>
+                    <span class="save-indicator" id="save-4-1">Saved ✓</span>
+                </div>
+
+                <div class="validation-note" style="margin-top: 25px;">
+                    <strong>Why rumination happens:</strong> After job loss, your brain is desperately searching for patterns and meaning. It replays events looking for what you could have controlled—even when the loss wasn't actually in your control. This isn't weakness; it's your nervous system in survival mode.
+                </div>
+
+                <div class="reflection-section" style="margin-top: 30px;">
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">The Difference in How It Feels</p>
+                        <p>When you get caught in these loops, how does your body feel? What happens to your energy, your mood, your sense of hope?</p>
+                    </div>
+                    
+                    <textarea id="reflection-4-2" placeholder="Notice: Do you feel heavier? More stuck? Does time disappear? Do you end up feeling worse than when you started?"></textarea>
+                    <span class="save-indicator" id="save-4-2">Saved ✓</span>
+                </div>
+
+                <div class="compassion-reminder" style="margin-top: 25px;">
+                    <strong>The signal rumination gives you:</strong> If thinking about something leaves you feeling more stuck, drained, or hopeless—without any new insight or path forward—that's rumination, not productive reflection. Your body is trying to tell you this pattern isn't helping.
+                </div>
+
+                <div class="reflection-section" style="margin-top: 30px;">
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">Shifting from "Why Me?" to "What Now?"</p>
+                        <p>Rumination asks unanswerable questions ("Why did this happen? What's wrong with me?"). Reflection asks questions that can actually help ("What do I need right now? What's one small step I can take?").</p>
+                        <p>Choose one of your recurring thoughts. What would it look like to shift from a "why" question to a "what" question?</p>
+                    </div>
+                    
+                    <textarea id="reflection-4-3" placeholder="Example: Instead of 'Why didn't I see this coming?' try 'What support do I need as I process this?' or 'What's one thing I can do today to take care of myself?'"></textarea>
+                    <span class="save-indicator" id="save-4-3">Saved ✓</span>
+                </div>
+
+                <div class="validation-note" style="margin-top: 25px;">
+                    <strong>This takes practice:</strong> You won't always be able to shift out of rumination, and that's okay. Sometimes your brain needs to loop for a while before it's ready to redirect. The goal isn't perfection—it's noticing the difference and being kind to yourself either way.
+                </div>
+
+                <div class="reflection-section" style="margin-top: 30px;">
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">When Rumination Takes Over</p>
+                        <p>When you notice you're stuck in a loop, what would a compassionate response to yourself look like? What might you need in that moment instead of trying to "think your way out"?</p>
+                    </div>
+                    
+                    <textarea id="reflection-4-4" placeholder="Examples: 'I notice I'm ruminating. This is hard. Maybe I need to move my body / call someone / do something with my hands / take a break from thinking about this for now...'"></textarea>
+                    <span class="save-indicator" id="save-4-4">Saved ✓</span>
+                </div>
+
+                <div class="compassion-reminder" style="margin-top: 25px;">
+                    <strong>Remember:</strong> You can't think your way out of rumination—you have to interrupt it with something different. Movement, connection, creativity, rest, or even just naming "I'm ruminating" can create space. Be patient with yourself as you learn what works.
+                </div>
+
+                <div class="privacy-note">
+                    Your reflections are private. Just for you.
+                </div>
+            </div>
+
+            <!-- Step 8: Self-Compassion Break Practice -->
+            <div class="step-section" id="step8">
+
+                <!-- YouTube Video: The Self-Compassion Break -->
+                <div style="margin-bottom: 28px;">
+                    <h3 style="color: #203445; margin: 0 0 12px 0; font-size: 1.1em;">🎬 The Self-Compassion Break</h3>
+                    <div style="background: #203445; border-radius: 12px; padding: 28px 24px; text-align: center;">
+                        <p style="color: #b8cdd8; font-size: 15px; line-height: 1.6; margin-bottom: 20px; max-width: 420px; margin-left: auto; margin-right: auto;">Watch this short guided practice — then return here to reflect on your experience.</p>
+                        <a href="https://youtube.com/shorts/xdU3hUo0HnI?feature=share" target="_blank"
+                           style="display: inline-block; background: #d56439; color: white; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: all 0.25s;">
+                            Watch on YouTube ↗
+                        </a>
+                        <p style="color: #7a9aad; font-size: 13px; margin-top: 14px; margin-bottom: 0;">Opens in YouTube · Come back when you're ready</p>
+                    </div>
+                </div>
+
+                <div class="reflection-section">
+                    <h2>Integration: Self-Compassion Break Practice</h2>
+                    <p class="reflection-timer">Take about 5 minutes</p>
+                    
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">Putting It All Together</p>
+                        <p>Think of a current struggle. Practice the three components together:</p>
+                        <p><strong>1. Mindfulness:</strong> "This is a moment of suffering/difficulty"<br>
+                        <strong>2. Common Humanity:</strong> "Others feel this way too / This is part of life"<br>
+                        <strong>3. Self-Kindness:</strong> "May I be kind to myself"</p>
+                        <p style="margin-top: 15px;">What was this experience like for you?</p>
+                    </div>
+                    
+                    <textarea id="reflection-5-1" placeholder="Describe what you noticed when you practiced this..."></textarea>
+                    <span class="save-indicator" id="save-5-1">Saved ✓</span>
+
+                    <div class="privacy-note">
+                        Your practice reflections are private. Just for you.
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Step 9: Commitments -->
+            <div class="step-section" id="step9">
+                <div class="reflection-section">
+                    <h2>Your Path Forward</h2>
+                    <p class="reflection-timer">Take about 4 minutes</p>
+                    
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">Your Self-Compassion Commitments</p>
+                        <p>What are 2-3 specific ways you want to practice self-compassion as you move through your career transition? Be realistic—what feels doable?</p>
+                    </div>
+                    
+                    <textarea id="reflection-5-2" placeholder="Example: 'When I notice harsh self-talk, I'll pause and ask what I'd say to a friend...'"></textarea>
+                    <span class="save-indicator" id="save-5-2">Saved ✓</span>
+
+                    <div class="privacy-note">
+                        Your commitments. Just for you.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 10: Letter to Future Self & Completion -->
+            <div class="step-section" id="step10">
+                <div class="reflection-section">
+                    <h2>Looking Ahead</h2>
+                    <p class="reflection-timer">Take about 5 minutes</p>
+                    
+                    <div class="reflection-prompt">
+                        <p class="prompt-question">Letter to Your Future Self</p>
+                        <p>Write a brief letter to yourself six months from now. What do you hope you'll remember about self-compassion? What do you want to tell your future self about this journey?</p>
+                    </div>
+                    
+                    <textarea id="reflection-5-3" placeholder="Dear Future Me..."></textarea>
+                    <span class="save-indicator" id="save-5-3">Saved ✓</span>
+
+                    <div class="privacy-note">
+                        A letter from present you to future you. Keep it safe.
+                    </div>
+                </div>
+
+                <div class="validation-note">
+                    <strong>You've done important work here.</strong> Self-compassion is a practice, not a destination. On hard days, you might forget everything you've learned—and that's okay. You can always come back to these reflections.
+                </div>
+            </div>
+
+            <!-- Step 11: Completion & Connection -->
+            <div class="step-section" id="step11">
+                <div class="completion-message">
+                    <h2>You Showed Up for Yourself</h2>
+                    <p>You've just done important work by acknowledging what's happening.</p>
+                    <p style="font-style: italic; color: #d56439; font-size: 1.1em; line-height: 1.6; margin-bottom: 30px;">"The goal of today isn't to feel better.<br>The goal is to feel real."</p>
+                </div>
+
+                <!-- Next Up -->
+                <div class="next-up-box">
+                    <h3>🛡️ Coming Up Next: Understanding Boundaries</h3>
+                    <p>Now that you've built a foundation of self-compassion, you'll learn:</p>
+                    <ul>
+                        <li><strong>What boundaries actually are</strong> (and what they're not)</li>
+                        <li><strong>Why saying no</strong> feels so hard — and how to do it anyway</li>
+                        <li><strong>How to protect your energy</strong> while honoring your needs</li>
+                    </ul>
+                </div>
+
+                <!-- PDF Download Card -->
+                <div class="download-options">
+                    <div class="download-card">
+                        <p class="eyebrow">Before You Go</p>
+                        <h3>Keep what you wrote today.</h3>
+                        <p>Your reflections only live here, on this screen. Download a copy to hold onto — for yourself, for your therapist, for whatever comes next.</p>
+                        <button class="btn-download" onclick="downloadReflectionsPDF()">
+                            ↓ Download My Reflections as PDF
+                        </button>
+                        <p class="download-privacy">Saved privately on your device. Nothing leaves this page.</p>
+                    </div>
+                </div>
+
+                <!-- Drop-In Callout -->
+                <div class="zoom-callout">
+                    <h3>You don't have to process this alone.</h3>
+                    <p>Our free drop-in sessions are a space to talk, breathe, and be in community with others who understand this.</p>
+                    <a href="https://www.unbrokenpathways.org/registration" target="_blank" class="zoom-link-btn">
+                        Join a Drop-In Session →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+            <button class="btn btn-secondary" id="backBtn" onclick="previousStep()" style="display:none;">← Back</button>
+            <button class="btn btn-primary" id="continueBtn" onclick="nextStep()">Continue →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 11;
+
+        // Auto-save functionality
+        const textareas = document.querySelectorAll('textarea');
+        const radioInputs = document.querySelectorAll('input[type="radio"]');
+        
+        textareas.forEach(textarea => {
+            // Load saved content
+            const savedContent = localStorage.getItem(textarea.id);
+            if (savedContent) {
+                textarea.value = savedContent;
+            }
+
+            // Save on input
+            textarea.addEventListener('input', function() {
+                localStorage.setItem(this.id, this.value);
+                showSaveIndicator(this.id);
+            });
+        });
+
+        // Save radio button selections
+        radioInputs.forEach(radio => {
+            const savedValue = localStorage.getItem(radio.name);
+            if (savedValue === radio.value) {
+                radio.checked = true;
+            }
+
+            radio.addEventListener('change', function() {
+                localStorage.setItem(this.name, this.value);
+            });
+        });
+
+        function showSaveIndicator(id) {
+            const indicator = document.getElementById('save-' + id);
+            if (indicator) {
+                indicator.classList.add('show');
+                setTimeout(() => {
+                    indicator.classList.remove('show');
+                }, 2000);
+            }
+        }
+
+        function updateProgress() {
+            const percentage = (currentStep / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = `Step ${currentStep} of ${totalSteps}`;
+        }
+
+        function calculateSelfCompassion() {
+            // Get all responses
+            let responses = {};
+            for (let i = 1; i <= 20; i++) {
+                let selected = document.querySelector(`input[name="sc${i}"]:checked`);
+                if (selected) {
+                    responses[i] = parseInt(selected.value);
+                }
+            }
+            
+            // Check if all answered
+            if (Object.keys(responses).length !== 20) {
+                alert('Please answer all questions before continuing.');
+                return false;
+            }
+            
+            // Reverse score items:
+            // Self-Judgment (REVERSE): 1, 4, 6, 10, 15
+            // Isolation (REVERSE): 2, 8, 12, 17
+            // Rumination (REVERSE): 5, 9, 20
+            let reverseItems = [1, 2, 4, 5, 6, 8, 9, 10, 12, 15, 17, 20];
+            reverseItems.forEach(item => {
+                responses[item] = 6 - responses[item];
+            });
+            
+            // Calculate subscales
+            // Self-Kindness (FORWARD): items 3, 7, 14, 16, 18
+            let selfKindness = (responses[3] + responses[7] + responses[14] + responses[16] + responses[18]) / 5;
+            // Self-Judgment (REVERSE): items 1, 4, 6, 10, 15
+            let selfJudgment = (responses[1] + responses[4] + responses[6] + responses[10] + responses[15]) / 5;
+            // Isolation (REVERSE): items 2, 8, 12, 17
+            let isolation = (responses[2] + responses[8] + responses[12] + responses[17]) / 4;
+            // Reflection (FORWARD): items 11, 13, 19
+            let reflection = (responses[11] + responses[13] + responses[19]) / 3;
+            // Rumination (REVERSE): items 5, 9, 20 (already reverse-scored above, so high = low rumination)
+            let rumination = (responses[5] + responses[9] + responses[20]) / 3;
+            
+            // Overall score (all subscales equally weighted)
+            let overall = (selfKindness + selfJudgment + isolation + reflection + rumination) / 5;
+            
+            // Save to localStorage
+            localStorage.setItem('sc_selfKindness', selfKindness.toFixed(2));
+            localStorage.setItem('sc_selfJudgment', selfJudgment.toFixed(2));
+            localStorage.setItem('sc_isolation', isolation.toFixed(2));
+            localStorage.setItem('sc_reflection', reflection.toFixed(2));
+            localStorage.setItem('sc_rumination', rumination.toFixed(2));
+            localStorage.setItem('sc_overall', overall.toFixed(2));
+            
+            return true;
+        }
+
+        function displayResults() {
+            // Load scores
+            let sk = parseFloat(localStorage.getItem('sc_selfKindness') || 0);
+            let sj = parseFloat(localStorage.getItem('sc_selfJudgment') || 0);
+            let iso = parseFloat(localStorage.getItem('sc_isolation') || 0);
+            let ref = parseFloat(localStorage.getItem('sc_reflection') || 0);
+            let rum = parseFloat(localStorage.getItem('sc_rumination') || 0);
+            let overall = parseFloat(localStorage.getItem('sc_overall') || 0);
+            
+            // Common Humanity: isolation items are reverse-scored so high iso = high common humanity
+            let ch = iso;
+            
+            // Rumination score is already stored (reverse-scored, so high = low rumination = good)
+            // For display we invert so the bar fills more when rumination is high (worse)
+            let rumination = 6 - rum; // Higher display value = more rumination
+            
+            // Display scores with animation
+            setTimeout(() => {
+                document.getElementById('sk-score').textContent = sk.toFixed(2);
+                document.getElementById('sk-bar').style.width = (sk / 5 * 100) + '%';
+                document.getElementById('sk-interpretation').textContent = getInterpretation(sk, 'Self-Kindness');
+                
+                document.getElementById('sj-score').textContent = sj.toFixed(2);
+                document.getElementById('sj-bar').style.width = (sj / 5 * 100) + '%';
+                document.getElementById('sj-interpretation').textContent = getInterpretation(sj, 'Self-Judgment');
+                
+                // Common Humanity (higher = better)
+                document.getElementById('ch-score').textContent = ch.toFixed(2);
+                document.getElementById('ch-bar').style.width = (ch / 5 * 100) + '%';
+                document.getElementById('ch-interpretation').textContent = getInterpretation(ch, 'Common Humanity');
+                
+                // Isolation (lower = better, so we invert for display)
+                let isoDisplay = 6 - iso; // Invert so higher number = more isolated
+                document.getElementById('iso-score').textContent = isoDisplay.toFixed(2);
+                document.getElementById('iso-bar').style.width = (isoDisplay / 5 * 100) + '%';
+                document.getElementById('iso-interpretation').textContent = getIsolationInterpretation(iso);
+                
+                // Reflection (higher = better)
+                document.getElementById('ref-score').textContent = ref.toFixed(2);
+                document.getElementById('ref-bar').style.width = (ref / 5 * 100) + '%';
+                document.getElementById('ref-interpretation').textContent = getReflectionInterpretation(ref);
+                
+                // Rumination (higher = worse)
+                document.getElementById('rum-score').textContent = rumination.toFixed(2);
+                document.getElementById('rum-bar').style.width = (rumination / 5 * 100) + '%';
+                document.getElementById('rum-interpretation').textContent = getRuminationInterpretation(rum);
+                
+                document.getElementById('overall-score').textContent = overall.toFixed(2);
+                document.getElementById('overall-bar').style.width = (overall / 5 * 100) + '%';
+                document.getElementById('overall-interpretation').textContent = getOverallInterpretation(overall);
+            }, 300);
+        }
+
+        function getReflectionInterpretation(score) {
+            if (score >= 3.5) {
+                return `You're able to think productively about your job loss—identifying what you need and considering next steps. This reflective capacity helps you move forward even when it's painful.`;
+            } else if (score >= 2.5) {
+                return `You have some capacity for productive reflection, though it may be inconsistent right now. Sometimes you can think through what you need; other times you get stuck.`;
+            } else {
+                return `Productive reflection feels out of reach right now. Your thinking tends to loop rather than move forward. This is normal when your brain is in trauma mode—the exercises in Step 7 can help shift this.`;
+            }
+        }
+
+        function getRuminationInterpretation(rumScore) {
+            // rumScore is reverse-scored: high value = low rumination (good)
+            if (rumScore >= 3.5) {
+                return `You're experiencing low rumination. While you think about what happened, you're not getting trapped in repetitive, unproductive loops.`;
+            } else if (rumScore >= 2.5) {
+                return `You're experiencing moderate rumination. You sometimes get stuck replaying events or asking 'why me?' but you can also shift out of these loops.`;
+            } else {
+                return `You're experiencing high rumination right now—replaying what happened, asking unanswerable questions, feeling stuck in mental loops. This is your brain trying desperately to regain control after trauma.`;
+            }
+        }
+
+        function getIsolationInterpretation(score) {
+            // Note: score here is the REVERSE-scored value (high = low isolation = good)
+            // So we interpret it inversely
+            if (score >= 3.5) {
+                return `You're experiencing low levels of isolation right now. Even though job loss is shrouded in silence and shame, you can still sense you're not alone.`;
+            } else if (score >= 2.5) {
+                return `You're experiencing moderate isolation. You intellectually know others lose jobs, but it's hard to feel that connection when everyone seems to be saying "just move on."`;
+            } else {
+                return `You're experiencing high isolation right now. This feels devastatingly lonely—and part of why is that people who've been through it rarely admit how hard it was. You're not imagining the silence.`;
+            }
+        }
+
+        function getInterpretation(score, dimension) {
+            if (dimension === 'Self-Kindness') {
+                if (score >= 3.5) {
+                    return `Even during this difficult transition, you're able to offer yourself kindness. This is a crucial protective factor during job loss.`;
+                } else if (score >= 2.5) {
+                    return `You show some capacity for self-kindness, though it may be harder right now given the stress of job loss. This is completely understandable—and something you can strengthen.`;
+                } else {
+                    return `Job loss often triggers harsh self-criticism. If being kind to yourself feels difficult or unfamiliar right now, that's a normal response to trauma. The good news: self-kindness is learnable.`;
+                }
+            }
+            
+            if (dimension === 'Self-Judgment') {
+                if (score >= 3.5) {
+                    return `Your inner critic isn't dominating right now. You're able to notice self-judgment without getting consumed by it—a real strength during career transitions.`;
+                } else if (score >= 2.5) {
+                    return `You experience some self-judgment, which is incredibly common after job loss. Many people blame themselves even when the loss wasn't their fault. Noticing this pattern is the first step.`;
+                } else {
+                    return `The inner critic is loud right now. Job loss often activates deep beliefs about our worth and competence. This harsh self-judgment is a trauma response, not the truth about who you are.`;
+                }
+            }
+            
+            if (dimension === 'Common Humanity') {
+                if (score >= 3.5) {
+                    return `Even though job loss is shrouded in silence and shame, you can still sense you're not alone. This is remarkable, because others who've been through this often don't talk about how hard it was—leaving you to find connection despite the silence.`;
+                } else if (score >= 2.5) {
+                    return `You intellectually know others experience job loss, but it's hard to feel that connection when everyone around you seems to be saying "just move on" or hiding their own struggles. This disconnect between knowing and feeling isn't your fault—it's the culture of silence around career loss.`;
+                } else {
+                    return `Right now, this feels devastatingly isolating. Part of what makes job loss so lonely is that people who've been through it rarely admit how hard it was—and those around you may minimize what you're experiencing. You're not imagining the silence. The common humanity exists, but it's hidden behind shame and cultural pressure to "bounce back."`;
+                }
+            }
+            
+            if (dimension === 'Reflection') {
+                if (score >= 3.5) {
+                    return `You're able to think about your job loss in productive ways—reflection rather than rumination. You can identify what you need and consider next steps, even when it's hard. This capacity is incredibly protective.`;
+                } else if (score >= 2.5) {
+                    return `You move between productive reflection and getting stuck in rumination. This is completely normal after job loss—your brain is trying to process trauma while also searching for a way forward.`;
+                } else {
+                    return `Right now, rumination is dominating—replaying what happened, asking 'why me?' without answers, feeling stuck in mental loops. This isn't a personal failing. It's your brain in survival mode, desperately trying to regain control. The exercises in Step 7 will help.`;
+                }
+            }
+            
+            if (dimension === 'Mindfulness') {
+                if (score >= 3.5) {
+                    return `You're able to step back from difficult thoughts and feelings without getting completely stuck in rumination. This capacity for reflection (rather than spinning) is incredibly valuable during career uncertainty.`;
+                } else if (score >= 2.5) {
+                    return `You can sometimes notice when you're ruminating, though getting unstuck may still be hard. This is normal when your nervous system is processing job loss as a threat—the brain naturally loops trying to regain control.`;
+                } else {
+                    return `Right now, painful thoughts may feel all-consuming and the mental loops are hard to escape. Rumination after job loss isn't a personal failing—it's your brain in survival mode, desperately searching for patterns and control.`;
+                }
+            }
+            
+            return '';
+        }
+
+        function getOverallInterpretation(score) {
+            if (score >= 3.5) {
+                return 'You have meaningful self-compassion resources, even in the midst of this transition. The reflections ahead will help you draw on these strengths as you navigate the real grief and uncertainty of job loss.';
+            } else if (score >= 2.5) {
+                return 'Your self-compassion is present but may be strained right now—which makes complete sense given what you\'re going through. Job loss is trauma. The skills you\'ll practice here can help you treat yourself with the care this situation demands.';
+            } else {
+                return 'Self-compassion may feel out of reach right now, and that\'s okay. Job loss often triggers our harshest self-criticism and deepest shame. What you\'re experiencing is a normal response to an abnormal situation. These reflections will help you build this capacity, step by step.';
+            }
+        }
+
+        function nextStep() {
+            // Special handling for Step 2 -> Step 3 (assessment -> results)
+            if (currentStep === 2) {
+                if (!calculateSelfCompassion()) {
+                    return;
+                }
+            }
+            
+            if (currentStep < totalSteps) {
+                document.getElementById('step' + currentStep).classList.remove('active');
+                currentStep++;
+                document.getElementById('step' + currentStep).classList.add('active');
+                
+                if (currentStep === 3) {
+                    displayResults();
+                }
+                
+                updateProgress();
+                updateHeader();
+                updateButtons();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                document.getElementById('step' + currentStep).classList.remove('active');
+                currentStep--;
+                document.getElementById('step' + currentStep).classList.add('active');
+                updateProgress();
+                updateHeader();
+                updateButtons();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function updateHeader() {
+            document.getElementById('module-header').style.display = currentStep === 1 ? '' : 'none';
+        }
+
+        function updateButtons() {
+            const backBtn = document.getElementById('backBtn');
+            const continueBtn = document.getElementById('continueBtn');
+
+            if (currentStep === 1) {
+                backBtn.style.display = 'none';
+            } else {
+                backBtn.style.display = 'block';
+            }
+
+            if (currentStep === totalSteps) {
+                continueBtn.style.display = 'none';
+            } else {
+                continueBtn.style.display = 'block';
+            }
+        }
+
+        function downloadReflectionsPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'letter' });
+
+            const navy   = [32, 52, 69];
+            const teal   = [93, 160, 175];
+            const ember  = [213, 100, 57];
+            const white  = [255, 255, 255];
+            const light  = [248, 249, 250];
+
+            const pageW  = doc.internal.pageSize.getWidth();
+            const pageH  = doc.internal.pageSize.getHeight();
+            const margin = 18;
+            const col    = pageW - margin * 2;
+            let y = 0;
+
+            function addPage() {
+                doc.addPage();
+                y = margin;
+                // subtle header stripe
+                doc.setFillColor(...navy);
+                doc.rect(0, 0, pageW, 8, 'F');
+                doc.setFillColor(...teal);
+                doc.rect(0, 8, pageW, 1.5, 'F');
+                y = 18;
+            }
+
+            function checkY(needed) {
+                if (y + needed > pageH - 20) addPage();
+            }
+
+            // ── Cover header ──────────────────────────────────────
+            doc.setFillColor(...navy);
+            doc.rect(0, 0, pageW, 42, 'F');
+            doc.setFillColor(...teal);
+            doc.rect(0, 42, pageW, 2, 'F');
+
+            doc.setTextColor(...white);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(20);
+            doc.text('Self-Compassion Reflection Guide', margin, 18);
+
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(11);
+            doc.text('Module 3  ·  UnBroken  ·  Places to Thrive', margin, 27);
+
+            doc.setFontSize(9);
+            doc.setTextColor(...teal);
+            doc.text('Completed: ' + new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' }), margin, 35);
+
+            y = 52;
+
+            // ── Assessment scores ─────────────────────────────────
+            const scores = [
+                { label: 'Self-Kindness',      val: localStorage.getItem('sc_selfKindness') },
+                { label: 'Self-Judgment',       val: localStorage.getItem('sc_selfJudgment') },
+                { label: 'Common Humanity',     val: localStorage.getItem('sc_isolation') },
+                { label: 'Reflection',          val: localStorage.getItem('sc_reflection') },
+                { label: 'Rumination (lower = better)', val: (() => { const r = localStorage.getItem('sc_rumination'); return r ? (6 - parseFloat(r)).toFixed(2) : null; })() },
+                { label: 'Overall Self-Compassion', val: localStorage.getItem('sc_overall') }
+            ].filter(s => s.val);
+
+            if (scores.length) {
+                doc.setFillColor(...light);
+                doc.setDrawColor(...teal);
+                doc.setLineWidth(0.4);
+                doc.roundedRect(margin, y, col, 8 + scores.length * 7, 3, 3, 'FD');
+
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(10);
+                doc.setTextColor(...navy);
+                doc.text('Your Self-Compassion Profile', margin + 4, y + 6);
+                y += 12;
+
+                doc.setFont('helvetica', 'normal');
+                doc.setFontSize(9);
+                scores.forEach(s => {
+                    doc.setTextColor(...navy);
+                    doc.text(s.label + ':', margin + 6, y);
+                    doc.setFont('helvetica', 'bold');
+                    doc.text(parseFloat(s.val).toFixed(2), margin + 70, y);
+                    doc.setFont('helvetica', 'normal');
+                    y += 7;
+                });
+                y += 6;
+            }
+
+            // ── Reflections ───────────────────────────────────────
+            const units = [
+                { unit: 'Understanding Self-Compassion', ids: ['1-1', '1-2', '1-3'] },
+                { unit: 'Self-Kindness',                 ids: ['2-1', '2-2', '2-3'] },
+                { unit: 'Common Humanity',               ids: ['3-1', '3-2', '3-3', '3-4'] },
+                { unit: 'Reflection',                    ids: ['4-1', '4-2', '4-3', '4-4'] },
+                { unit: 'Integration & Moving Forward',  ids: ['5-1', '5-2', '5-3'] }
+            ];
+
+            units.forEach(section => {
+                checkY(16);
+
+                // Section header bar
+                doc.setFillColor(...navy);
+                doc.rect(margin, y, col, 9, 'F');
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(10);
+                doc.setTextColor(...white);
+                doc.text(section.unit, margin + 4, y + 6.2);
+                y += 13;
+
+                section.ids.forEach(id => {
+                    const textarea = document.getElementById('reflection-' + id);
+                    if (!textarea) return;
+                    const step = textarea.closest('.step-section');
+                    const question = step ? step.querySelector('.prompt-question') : null;
+                    const answer = textarea.value.trim();
+
+                    const qText = question ? question.textContent.trim() : '';
+                    if (!qText && !answer) return;
+
+                    checkY(20);
+
+                    // Question label
+                    if (qText) {
+                        doc.setFont('helvetica', 'bolditalic');
+                        doc.setFontSize(9);
+                        doc.setTextColor(...ember);
+                        const qLines = doc.splitTextToSize(qText, col - 4);
+                        checkY(qLines.length * 5 + 4);
+                        doc.text(qLines, margin + 4, y);
+                        y += qLines.length * 5 + 2;
+                    }
+
+                    // Answer
+                    doc.setFont('helvetica', 'normal');
+                    doc.setFontSize(9.5);
+                    doc.setTextColor(50, 50, 50);
+                    const aText = answer || '[Not completed]';
+                    const aLines = doc.splitTextToSize(aText, col - 8);
+                    checkY(aLines.length * 5.5 + 6);
+                    doc.text(aLines, margin + 6, y);
+                    y += aLines.length * 5.5 + 8;
+
+                    // Thin divider
+                    doc.setDrawColor(220, 220, 220);
+                    doc.setLineWidth(0.2);
+                    doc.line(margin + 4, y - 4, pageW - margin - 4, y - 4);
+                });
+
+                y += 4;
+            });
+
+            // ── Footer on every page ──────────────────────────────
+            const totalPages = doc.internal.getNumberOfPages();
+            for (let i = 1; i <= totalPages; i++) {
+                doc.setPage(i);
+                doc.setFillColor(...navy);
+                doc.rect(0, pageH - 10, pageW, 10, 'F');
+                doc.setFont('helvetica', 'normal');
+                doc.setFontSize(7.5);
+                doc.setTextColor(...teal);
+                doc.text('Created with care by Places to Thrive, Inc. © ' + new Date().getFullYear() + '  |  The UnBroken Project  |  unbrokenpathways.org', margin, pageH - 3.5);
+                doc.setTextColor(150, 150, 150);
+                doc.text('Page ' + i + ' of ' + totalPages, pageW - margin, pageH - 3.5, { align: 'right' });
+            }
+
+            doc.save('self-compassion-reflections-' + new Date().toISOString().split('T')[0] + '.pdf');
+        }
+
+        // Initialize
+        updateProgress();
+        updateHeader();
+        updateButtons();
+    </script>
+
+    <!-- Copyright Footer -->
+    <div style="text-align:center; padding: 20px; font-size:13px; color:#6c757d; margin-top:10px;">
+        © <span id="copyright-year"></span> Places to Thrive, Inc. All rights reserved.<br>
+        UnBroken is a program of Places to Thrive, Inc. | 
+        <a href="https://www.unbrokenpathways.org" target="_blank" style="color:#5da0af; text-decoration:none;">unbrokenpathways.org</a>
+    </div>
+    <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
